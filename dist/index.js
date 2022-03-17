@@ -1901,7 +1901,7 @@ const main = () => {
     }
 
     if (res.output[1]?.length > 0) {
-      misformatted.push(res.output[1].replaceAll('\\n', ';'));
+      misformatted.push(res.output[1].replaceAll('\n', ';'));
     }
   });
 
