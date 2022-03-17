@@ -14,8 +14,10 @@ const main = () => {
   const recursive = core.getInput('recursive');
 
   if (paths) {
+    console.info('Checking path(s): ', paths.replace(';', ', '));
     paths = paths.split(';');
   } else {
+    console.info('No specific path(s) provided, checking entire repository.');
     paths = ['.'];
   }
 
