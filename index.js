@@ -22,7 +22,7 @@ const main = () => {
   }
 
   const terraformBaseArgs = ['fmt', '-check'];
-  if (recursive) {
+  if (recursive == 'true') {
     terraformBaseArgs.push('-recursive');
   }
 
@@ -51,7 +51,7 @@ const main = () => {
   if (misformatted.length > 0) {
     console.error(
         'The following files are not correctly formatted:\n',
-        misformatted.join(', '),
+        misformatted.replace(';', '\n'),
     );
 
     core.setFailed();
