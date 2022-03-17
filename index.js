@@ -42,7 +42,7 @@ const main = () => {
     }
 
     if (res.output[1]?.length > 0) {
-      misformatted.push(res.output[1].replace('\n', ';'));
+      misformatted.push(res.output[1].replace('\\n', ';'));
     }
   });
 
