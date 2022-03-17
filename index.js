@@ -14,13 +14,15 @@ const main = () => {
   const recursive = core.getInput('recursive');
 
   if (paths) {
+    console.info('Checking paths: ', paths.replace(';', ', '));
     paths = paths.split(';');
   } else {
+    console.info('No specific path provided, checking entire repository.');
     paths = ['.'];
   }
 
   const terraformBaseArgs = ['fmt', '-check'];
-  if (recursive) {
+  if (recursive == 'true') {
     terraformBaseArgs.push('-recursive');
   }
 
@@ -40,13 +42,21 @@ const main = () => {
     }
 
     if (res.output[1]?.length > 0) {
-      misformatted.push(res.output[1]);
+      misformatted.push(res.output[1].replaceAll('\n', ';'));
     }
   });
 
   core.setOutput('misformatted', misformatted);
 
   if (misformatted.length > 0) {
+    console.error(
+        'The following files are not correctly formatted:\n'
+    );
+    
+    misformatted.forEach((element) => {
+        console.error(element.replaceAll(';', '\n'))
+    }),
+
     core.setFailed();
     return;
   }

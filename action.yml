@@ -10,7 +10,7 @@ inputs:
     default: 'true'
 outputs:
   misformatted:
-    description: List of files with formatting issues.
+    description: 'List of strings containing semicolon-separated paths of misformatted files. Returns a separate string for each path provided.'
 runs:
   using: 'node16'
   main: 'dist/index.js'
