@@ -1,0 +1,16 @@
+name: 'Terraform FMT'
+description: 'Check your Terraform code for compatibility with its official standards.'
+inputs:
+  paths:
+    description: 'Semicolon-separated list of files and directories to check. Defaults to repository root.'
+    required: false
+  recursive:
+    description: 'Whether to check directories recursively. Defaults to true.'
+    required: true
+    default: 'true'
+outputs:
+  misformatted:
+    description: List of files with formatting issues.
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

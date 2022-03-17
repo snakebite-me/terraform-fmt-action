@@ -1,0 +1,30 @@
+{
+  "name": "terraform-fmt-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint index.js",
+    "build": "ncc build index.js -o dist --source-map --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snakebite-me/terraform-fmt-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snakebite-me/terraform-fmt-action/issues"
+  },
+  "homepage": "https://github.com/snakebite-me/terraform-fmt-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "command-exists": "^1.2.9"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.3",
+    "eslint": "^8.11.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
