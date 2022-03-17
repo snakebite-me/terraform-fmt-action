@@ -51,7 +51,7 @@ const main = () => {
   if (misformatted.length > 0) {
     console.error(
         'The following files are not correctly formatted:\n',
-        misformatted.replace(';', '\n'),
+        misformatted.forEach((element) => {element.replace(';', '\n')}),
     );
 
     core.setFailed();
