@@ -14,10 +14,10 @@ const main = () => {
   const recursive = core.getInput('recursive');
 
   if (paths) {
-    console.info('Checking path(s): ', paths.replace(';', ', '));
+    console.log('Checking path(s): ', paths.replace(';', ', '));
     paths = paths.split(';');
   } else {
-    console.info('No specific path(s) provided, checking entire repository.');
+    console.log('No specific path(s) provided, checking entire repository.');
     paths = ['.'];
   }
 
@@ -49,6 +49,7 @@ const main = () => {
   core.setOutput('misformatted', misformatted);
 
   if (misformatted.length > 0) {
+    console.error("The following files are not correctly formatted: ", misformatted.join(', '))
     core.setFailed();
     return;
   }
