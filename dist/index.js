@@ -1913,7 +1913,7 @@ const main = () => {
     );
     
     misformatted.forEach((element) => {
-        console.error(element.replace(';', '\n'))
+        console.error(element.replaceAll(';', '\n'))
     }),
 
     core.setFailed();
